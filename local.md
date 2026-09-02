@@ -1,6 +1,10 @@
 # Local Setup (VS Code + Miniconda)
 
-> This guide takes you from a clean machine to running `ex_1/ex_1.ipynb` locally. If you would rather work in the browser without installing anything, see [kaggle.md](kaggle.md) instead.
+> This guide takes you from a clean machine to running `ex_1/ex_1.ipynb` locally in VS Code.
+>
+> **We recommend this setup to everyone who can manage it** — not because it is faster, but because **VS Code is the same environment as the exam**. The time you spend getting comfortable with it now pays off on exam day.
+>
+> If the installation gives you trouble, don't get stuck on it: [Kaggle](kaggle.md) is our go-to standard environment and runs the same exercises in your browser. You can always come back to this guide later.
 
 ## Table of Contents
 - [Overview](#overview)

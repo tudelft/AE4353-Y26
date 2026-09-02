@@ -38,23 +38,28 @@ We officially support **two** environments this year. Both cover every exercise,
 
 ### Which Should I Pick?
 
-| | **Local** ([local.md](local.md)) | **Kaggle** ([kaggle.md](kaggle.md)) |
+| | **Kaggle** ([kaggle.md](kaggle.md)) | **Local** ([local.md](local.md)) |
 | --- | --- | --- |
-| Runs on | Your own machine | Kaggle's servers, in your browser |
-| Interface | VS Code | Kaggle notebook editor |
-| Setup effort | One-time install of VS Code, Git and Miniconda | A Kaggle account and a per-exercise file upload |
-| Dependencies | Pinned by [env.yml](env.yml) — identical for everyone | Kaggle's pre-installed stack |
-| GPU | Only if you own an NVIDIA GPU | Free GPU quota (~30 h/week) |
-| Files | Just clone the repo | Each exercise's files must be uploaded as a Kaggle Dataset |
-| Works offline | Yes | No |
+| | *the go-to standard* | *recommended if you can manage it* |
+| Runs on | Kaggle's servers, in your browser | Your own machine |
+| Interface | Kaggle notebook editor | **VS Code — the same as the exam** |
+| Setup effort | A Kaggle account and a per-exercise file upload | One-time install of VS Code, Git and Miniconda |
+| Dependencies | Kaggle's pre-installed stack | Pinned by [env.yml](env.yml) — identical for everyone |
+| GPU | Free GPU quota (~30 h/week) | Only if you own an NVIDIA GPU |
+| Files | Each exercise's files must be uploaded as a Kaggle Dataset | Just clone the repo |
+| Works offline | No | Yes |
 
-**Our recommendation:** start with the **local** setup. It is the more comfortable way to work, it uses the exact package versions we pin, and your files stay where you put them. Move to **Kaggle** if the local installation gives you trouble, or when you want a GPU for the heavier training runs in Exercises 2 and 3.
+**Kaggle is the standard, go-to environment for this course.** It works on any machine, needs nothing installed, and comes with a free GPU. If you are unsure where to start, start there — you will be running Exercise 1 within minutes.
+
+**That said, we recommend the local setup to everyone who can manage it.** The reason is not speed: it is that the local setup runs in **VS Code, which is the same environment as the exam**. Getting comfortable with it now — the editor, selecting a kernel, navigating the file tree — is one less thing to work out on exam day. Kaggle's notebook editor, however convenient, is not what you will sit in front of during the exam.
+
+So: **use Kaggle whenever you need it, and local whenever you can.** Switching between the two mid-course is completely fine.
 
 > ⚠️ These two are what we support. You are of course free to use something else (Google Colab, your own cluster, a bare `pip` install), but we cannot help you debug it.
 
 ### Getting Started
-- 💻 **[local.md](local.md)** — VS Code + Git + Miniconda, on Windows, Linux or macOS, including optional GPU setup.
-- ☁️ **[kaggle.md](kaggle.md)** — Kaggle account, importing the notebooks, uploading datasets, and enabling the GPU.
+- ☁️ **[kaggle.md](kaggle.md)** — Kaggle account, importing the notebooks, uploading datasets, and enabling the GPU. *Start here if you are unsure.*
+- 💻 **[local.md](local.md)** — VS Code + Git + Miniconda, on Windows, Linux or macOS, including optional GPU setup. *Worth the effort — it is the exam environment.*
 
 ## Data
 The data for this course can be found at this [link](https://surfdrive.surf.nl/files/index.php/s/uStySKYBKHBXcjP), using the password `Ae4353`.

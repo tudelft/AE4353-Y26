@@ -1,6 +1,8 @@
 # Kaggle Setup
 
-> This guide explains how to run the exercises on [Kaggle](https://www.kaggle.com/), entirely in your browser. Use it if you have had difficulties installing the local environment, if the kernel refuses to start, or if you simply want a free GPU. If you would rather work on your own machine, see [local.md](local.md).
+> This guide explains how to run the exercises on [Kaggle](https://www.kaggle.com/), entirely in your browser. **Kaggle is the go-to standard environment for this course** — nothing to install, works on any machine, and a free GPU included. If you are not sure where to start, start here.
+>
+> Once you are up and running, do also give the [local setup](local.md) a try when you get the chance: it uses **VS Code, which is the same environment as the exam**, so it is worth getting comfortable with.
 
 ## Table of Contents
 - [Why Kaggle](#why-kaggle)
