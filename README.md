@@ -3,137 +3,88 @@
 
 ## Table of Contents
 - [About](#about)
+- [Exercises](#exercises)
+- [Environments](#environments)
+    - [Which Should I Pick?](#which-should-i-pick)
+    - [Getting Started](#getting-started)
+- [Data](#data)
 - [GitHub Copilot](#github-copilot)
-- [Pre-requisites](#pre-requisites)
-    - [Visual Studio Code](#Visual-studio-code)
-- [Windows](#windows)
-    - [Setting Up](#setting-up)
-        - [Git](#git)
-        - [Miniconda](#miniconda)
-- [Linux](#linux)
-    - [Setting Up](#setting-up-1)
-        - [Git](#git-1)
-        - [Miniconda](#miniconda-1)
-    - [Data](#data)
+- [Repository Layout](#repository-layout)
 - [License](#license)
 - [Contact Information](#contact-information)
 
 ## About
-This repository contains all the resources for the weekly exercises and competitions associated with the course. Each week, exercises and their solutions will be published here.
+This repository contains the course materials for the exercises and the separate competition associated with the course. The exercise notebooks are kept in the repository, and the competition materials will be added separately as needed.
 
-To ensure a consistent and easy-to-setup coding environment for everyone, we will be using a combination of [Visual Studio Code](https://code.visualstudio.com/) and [Kaggle](https://www.kaggle.com/). These will be the official environments throughout the course.
+The exercises walk you through applying deep learning to aerospace control and perception problems: you will train a network to fly a quadrotor, build a solar compass from polarized images, and generate data with a variational autoencoder. Each one is a Jupyter notebook with sections marked `TODO` for you to complete.
 
-To get started, please refer to this README file for detailed instructions and guidance on setting up your environment correctly. Once your environment is configured, you can begin exploring the code and working on the exercises. If you have any questions or need assistance, feel free to reach out (see [contact information](#contact-information) to find out how!). Happy coding and learning! 🌟
+If you have any questions or need assistance, feel free to reach out — see [contact information](#contact-information). Happy coding and learning! 🌟
 
-### GitHub Copilot
-GitHub Copilot is an AI-powered assistant that helps you write code faster and more efficiently. It provides intelligent code suggestions and completions based on your context, enhancing your coding experience and boosting productivity. 
+## Exercises
 
-> ⚠️ We encourage you to use tools like this to aid in learning concepts and practicing coding. However, it’s important not to rely solely on these tools — ensure you put in the effort to understand and practice the material yourself! Please note that such tools will ***NOT*** be permitted during the final exam.
+| # | Notebook | Topic | Data |
+| --- | --- | --- | --- |
+| 1 | [ex_1/ex_1.ipynb](ex_1/ex_1.ipynb) | **Quadrotor Flight with Deep Learning** — learn a control policy from simulated hover trajectories and evaluate it closed-loop | `2D_QUAD_HOVER.npz`, `3D_QUAD_HOVER.npz` |
+| 2 | [ex_2/ex_2.ipynb](ex_2/ex_2.ipynb) | **Solar Compass from Polarization Images** — CNN regression of heading angle, with representation selection and data augmentation | `polarization_dataset/dataset.h5` |
+| 3 | [ex_3/ex_3.ipynb](ex_3/ex_3.ipynb) | **Variational Autoencoders** — build and train a VAE, and explore its latent space | MNIST (downloaded automatically) |
 
-If you do not have it yet, please sign up for the Student Developer Pack on GitHub using this [link](https://education.github.com/pack). Once you have signed up, wait for GitHub to authenticate your request. Once authenticated, you will have access to GitHub Copilot.
+Each exercise folder also contains a `*_kaggle.ipynb` variant. It is the **same exercise**, with file paths adapted to the Kaggle environment. Work through whichever one matches the environment you chose below — not both.
 
-If you already have access to GitHub Copilot, it comes pre-installed when you open the devcontainer. Simply log in with your GitHub account and you can start using GitHub Copilot in Visual Studio Code.
+Supporting code lives in each exercise's `additional/` folder (plotting helpers, dataloaders, simulation code). We keep it out of the notebooks to keep them readable; you generally do not need to edit it, but you are welcome to read it.
 
-## Getting Started
+## Environments
+We officially support **two** environments this year. Both cover every exercise, and you can switch between them at any point.
 
-### Pre-requisites
-These are the required tools for this course. Please make sure to install them before starting the exercises.
+### Which Should I Pick?
 
-#### [1. Visual Studio Code](https://code.visualstudio.com/)
-Visual Studio Code (VS Code) is a lightweight and powerful code editor. We will use it for writing and editing code during the course.  
+| | **Local** ([local.md](local.md)) | **Kaggle** ([kaggle.md](kaggle.md)) |
+| --- | --- | --- |
+| Runs on | Your own machine | Kaggle's servers, in your browser |
+| Interface | VS Code | Kaggle notebook editor |
+| Setup effort | One-time install of VS Code, Git and Miniconda | A Kaggle account and a per-exercise file upload |
+| Dependencies | Pinned by [env.yml](env.yml) — identical for everyone | Kaggle's pre-installed stack |
+| GPU | Only if you own an NVIDIA GPU | Free GPU quota (~30 h/week) |
+| Files | Just clone the repo | Each exercise's files must be uploaded as a Kaggle Dataset |
+| Works offline | Yes | No |
 
-- [Install](https://code.visualstudio.com/download)
-- [Documentation](https://code.visualstudio.com/docs)
+**Our recommendation:** start with the **local** setup. It is the more comfortable way to work, it uses the exact package versions we pin, and your files stay where you put them. Move to **Kaggle** if the local installation gives you trouble, or when you want a GPU for the heavier training runs in Exercises 2 and 3.
 
-## Setting Up
-The next step is setting up the actual workspace you will be working in. This will be fully elaborated here below.
+> ⚠️ These two are what we support. You are of course free to use something else (Google Colab, your own cluster, a bare `pip` install), but we cannot help you debug it.
 
-> ⚠️ Windows and Linux have different setups, so please make sure you follow the setup which works for your distribution!
-
-### Windows:
-1. ***Git***
-
-    a. Install the Git Bash for Windows using this [Installation link](https://git-scm.com/downloads), and selecting the Windows distribution. Once the installation file is downloaded, run the installation (by selecting the downloaded file), and accept the recommended installation location and permissions.
-
-    b. Once you've completed the tasks through the installation wizard, open the Git Bash by either searching for it in your applications (can be done by pressing the `Windows key` and typing Git Bash).
-
-    c. Inside the Git terminal, you can now perform Git operations. This will allow you to download the course repository and update it as we progress through the course. 
-    
-    1. Clone the repository (create a local copy) by running the following command:
-        ```
-        git clone https://github.com/tudelft/AE4353-Y25.git
-        ```
-            
-    2. Now you have a local version of the repository which can be updated directly along with any changes we upload to the repository with one simple command. First navigate to the repository folder (from the Git terminal simply type `cd AE4353-Y25/`), then type:
-        ```
-        git pull
-        ```
-    	
-		This will automatically update your local version with any changes or additions we have made.
-
-2. ***Miniconda***
-
-    Now that you have a version of the repository, we need to create the working environment. This is essentially a way of downloading all the packages required for the exercises in a controlled way.
-
-    a. Use the following [download link](https://www.anaconda.com/download). Here you will need to press the big green `Get Started` button, which will ask you to create an account. Make sure to do this with a ***valid email*** as you will need to verify the account. Once this is done you will have a choice between downloading the `distribution` and downloading `miniconda`. Please select `miniconda`. 
-
-    b. With Miniconda downloaded, you can now navigate to the `Anaconda Prompt` (in the same way you did for the Git Bash), and open it.
-
-    c. In Anaconda Prompt, navigate to your repository folder (using `cd AE4353-Y25/`) then enter the following command to create the environment:
-    ```
-    conda env create -f env.yml
-    ```
-
-    This will take a few minutes. Once it’s done, run `conda env list` in the terminal to check if the environment installed correctly. If `AE4353` shows there, then you are ready to go!
-    
-> Once you have completed these steps, you can immediately go to the [Usage](#usage) section to see how to use the setup you just created!
-
-### Linux:
-Installations on Linux are all done directly through bash. Therefore the first thing to do for the installation is opening the command window (either by navigating to it through the applications page or by typing `ctrl + alt + t`).
-
-1. ***Git***
-
-    The following instructions are all found on this [installation link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Please refer to it if you encounter any problems. 
-
-    a. Through the bash terminal install Git:
-    ```
-    apt-get install git-all
-    ```
-        
-    b. Once you've installed git and its dependencies, you can immediately clone the repository:
-    ```
-    git clone https://github.com/tudelft/AE4353-Y25.git
-    ```
-        
-    c. For any future updates we may make to the repository, you can directly update your local copy by navigating to the repository (in the bash terminal type `cd AE4353-Y25/`) and running:
-    ```
-    git pull
-    ```
-
-2. ***Miniconda***
-
-    a. In order to install Miniconda, follow the instructions shown on this [installation guide](https://www.anaconda.com/docs/getting-started/miniconda/install#linux-2). This should lead you to a clean install of Miniconda.
-
-    b. Once you've installed Miniconda, you will be able to use the conda commands in your bash terminal. This will allow you to create the environment for this course. To do this enter the following command in your terminal:
-    ```
-    conda env create -f env.yml
-    ```
-    
-	You can check this installation by using the `conda env list` command. If the environment `AE4353` shows up, then you have completed the installation process!
-
-## Usage
-Now that you've completed the installations you can start working on the exercises! In this section we will cover how you can use Visual Studio Code (VS Code) as your interface for this course. 
-
-> 💡 This section is explained in the `Practical session 1` slides with images of each step. Please check them for further clarification on the steps below.
-
-1. Open VS Code. Once in, you will see several options in the center of the window. Select the `open folder...` option. From there select the repository you just created.
-
-2. Once in the environment, you will see on the left-hand side the ***working directory***. On the top right you will see a `kernel` option. Click on it, then select the `jupyter kernel` option (as this is a VS Code pre-requirement to load in a Python environment). Once you've done this, you should see the `AE4353` environment option. Select it!
-
-3. Now that you've set up the environment in your VS Code, you are ready to get coding! Open the first exercise notebook `Ex_1.ipynb` and get coding!
+### Getting Started
+- 💻 **[local.md](local.md)** — VS Code + Git + Miniconda, on Windows or Linux, including optional CUDA setup.
+- ☁️ **[kaggle.md](kaggle.md)** — Kaggle account, importing the notebooks, uploading datasets, and enabling the GPU.
 
 ## Data
-The data for this course can be found at this [link](https://surfdrive.surf.nl/files/index.php/s/uStySKYBKHBXcjP). In order to access it you will need to enter the password: `Ae4353`. Once you've downloaded this data, please extract/unzip the folder and store the data within the data folder found in `/your/workspace/path/AE4353-Y25/data/`.
+The data for this course can be found at this [link](https://surfdrive.surf.nl/files/index.php/s/uStySKYBKHBXcjP), using the password `Ae4353`.
+
+Once downloaded, extract or unzip the folder. Where the files go depends on your environment:
+
+- **Local:** place them inside this repository's `data/` directory, at `/your/workspace/path/AE4353-Y26/data/`. See [local.md](local.md#4-data).
+- **Kaggle:** upload them as a Kaggle Dataset and attach it to your notebook. See [kaggle.md](kaggle.md#create-the-dataset).
+
+> ⚠️ Please do not commit the dataset back to the repository.
+
+## GitHub Copilot
+GitHub Copilot is an AI-powered assistant that helps you write code faster and more efficiently. It provides intelligent code suggestions and completions based on your context, enhancing your coding experience and boosting productivity.
+
+> ⚠️ We encourage you to use tools like this to aid in learning concepts and practicing coding. However, it's important not to rely solely on these tools — ensure you put in the effort to understand and practice the material yourself! Please note that such tools will ***NOT*** be permitted during the final exam.
+
+If you do not have it yet, please sign up for the Student Developer Pack on GitHub using this [link](https://education.github.com/pack). Once you have signed up, wait for GitHub to authenticate your request. Once authenticated, you will have access to GitHub Copilot, which you can enable in VS Code by installing the GitHub Copilot extension and signing in with your GitHub account.
+
+## Repository Layout
+
+```
+AE4353-Y26/
+├── README.md          # you are here — course and environment overview
+├── local.md           # setup guide: VS Code + Miniconda on your machine
+├── kaggle.md          # setup guide: running the exercises on Kaggle
+├── env.yml            # conda environment definition (local setup)
+├── data/              # place the downloaded dataset here (not committed)
+├── ex_1/              # Exercise 1 — quadrotor flight
+├── ex_2/              # Exercise 2 — solar compass
+└── ex_3/              # Exercise 3 — variational autoencoders
+```
 
 ## License
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](LICENSE) file for more details.
