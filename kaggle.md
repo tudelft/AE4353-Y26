@@ -78,7 +78,11 @@ You repeat this once per exercise. The per-exercise file lists are in [section 4
 
 2. Press `+ Add Input`, switch to the `Your Datasets` / `Datasets` tab, find the dataset you just created and add it.
 
-3. It now appears under `/kaggle/input/<slug>/` and is visible in the file browser on the right. Expand it and confirm the paths match what the notebook expects.
+3. It now appears in the file browser on the right.
+
+    > ⚠️ **The exact mount path depends on your account.** It may be `/kaggle/input/<slug>/`, or something longer such as `/kaggle/input/datasets/<your-username>/<slug>/`. Do not guess it and do not assume the path printed in this guide is what you will get.
+
+4. **Copy the real path.** Expand the dataset in the file browser, hover over the folder or file you need, and click the **copy-path** icon that appears next to it. Paste that path into the notebook cell that asks for one.
 
 ### Enable the GPU
 In the right-hand panel, open `Session options` (or the `⋮` menu) → **`Accelerator`** and pick a **GPU** (e.g. `GPU T4 x2`). Turn `Internet` **on** in the same panel if the exercise needs it.
@@ -191,6 +195,7 @@ That is all — there is no SURFdrive data for this exercise. MNIST is downloade
 | --- | --- |
 | `FileNotFoundError: kaggle/input/...` | The path is missing its leading `/`. Use the absolute path `/kaggle/input/...`. |
 | `FileNotFoundError: /kaggle/input/AE4353_1/...` | Use the **slug**, not the title: `/kaggle/input/ae4353-1/`. Check the exact slug in the file browser on the right. |
+| `FileNotFoundError` on a path that looks correct | Your dataset may be mounted under a longer, account-specific path such as `/kaggle/input/datasets/<your-username>/<slug>/`. Hover over the folder in the Input panel on the right and click the **copy-path** icon to get the real path, then paste it into the notebook. |
 | `FileExistsError: /kaggle/working/additional` | You re-ran the `copytree` cell. Add `dirs_exist_ok=True`, or run `shutil.rmtree('/kaggle/working/additional')` first. |
 | `ModuleNotFoundError: No module named 'additional'` | The `copytree` cell has not run, or you uploaded the loose `.py` files instead of the `additional` folder. Re-upload the folder itself. |
 | `ModuleNotFoundError: No module named 'dataset'` (Ex 2) | `dataset.py` was not copied into `/kaggle/working/`. See [Exercise 2](#exercise-2--solar-compass). |
