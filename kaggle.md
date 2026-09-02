@@ -61,7 +61,7 @@ You repeat this once per exercise. The per-exercise file lists are in [section 4
 ### Create the Dataset
 1. Press `+ Create` again and choose **`New Dataset`**.
 
-2. Give it exactly the name listed for your exercise (`AE4353_1`, `AE4353_2` or `AE4353_3`). The notebooks refer to these names, so a typo means broken paths.
+2. Give it exactly the name listed for your exercise (`AE4353_0`, `AE4353_1`, `AE4353_2` or `AE4353_3`). The notebooks refer to these names, so a typo means broken paths.
 
 3. Upload the files listed for that exercise.
 
@@ -96,9 +96,18 @@ Summary of what goes where:
 
 | Exercise | Notebook to import | Dataset name | Mounted at | Internet |
 | --- | --- | --- | --- | --- |
+| 0 | `ex_0/ex_0_kaggle.ipynb` | `AE4353_0` | `/kaggle/input/ae4353-0/` | not needed |
 | 1 | `ex_1/ex_1_kaggle.ipynb` | `AE4353_1` | `/kaggle/input/ae4353-1/` | not needed |
 | 2 | `ex_2/ex_2 kaggle.ipynb` | `AE4353_2` | `/kaggle/input/ae4353-2/` | not needed |
 | 3 | `ex_3/ex_3_kaggle.ipynb` | `AE4353_3` | `/kaggle/input/ae4353-3/` | **required** (MNIST download) |
+
+### Exercise 0 — Python and ML Warm-Up
+**Dataset `AE4353_0`** — the `additional` folder from `ex_0/` only, containing:
+
+- `data.py`
+- `plots.py`
+
+There is no data file to upload: Exercise 0 generates its own data. No GPU and no internet are needed.
 
 ### Exercise 1 — Quadrotor Flight
 **Dataset `AE4353_1`** — 6 files in total:

@@ -16,7 +16,7 @@
 ## About
 This repository contains the course materials for the exercises and the separate competition associated with the course. The exercise notebooks are kept in the repository, and the competition materials will be added separately as needed.
 
-The exercises walk you through applying deep learning to aerospace control and perception problems: you will train a network to fly a quadrotor, build a solar compass from polarized images, and generate data with a variational autoencoder. Each one is a Jupyter notebook with sections marked `TODO` for you to complete.
+Exercise 0 is a warm-up that needs no data and no setup beyond the environment; start there if you want to refresh your Python before the real problems. The remaining exercises walk you through applying deep learning to aerospace control and perception problems: you will train a network to fly a quadrotor, build a solar compass from polarized images, and generate data with a variational autoencoder. Each one is a Jupyter notebook with sections marked `TODO` for you to complete.
 
 If you have any questions or need assistance, feel free to reach out — see [contact information](#contact-information). Happy coding and learning! 🌟
 
@@ -24,6 +24,7 @@ If you have any questions or need assistance, feel free to reach out — see [co
 
 | # | Notebook | Topic | Data |
 | --- | --- | --- | --- |
+| 0 | [ex_0/ex_0.ipynb](ex_0/ex_0.ipynb) | **Python and Machine Learning Warm-Up** — Python and NumPy refresher, then a perceptron trained by hand with gradient descent | none (generated in the notebook) |
 | 1 | [ex_1/ex_1.ipynb](ex_1/ex_1.ipynb) | **Quadrotor Flight with Deep Learning** — learn a control policy from simulated hover trajectories and evaluate it closed-loop | `2D_QUAD_HOVER.npz`, `3D_QUAD_HOVER.npz` |
 | 2 | [ex_2/ex_2.ipynb](ex_2/ex_2.ipynb) | **Solar Compass from Polarization Images** — CNN regression of heading angle, with representation selection and data augmentation | `polarization_dataset/dataset.h5` |
 | 3 | [ex_3/ex_3.ipynb](ex_3/ex_3.ipynb) | **Variational Autoencoders** — build and train a VAE, and explore its latent space | MNIST (downloaded automatically) |
@@ -81,6 +82,7 @@ AE4353-Y26/
 ├── kaggle.md          # setup guide: running the exercises on Kaggle
 ├── env.yml            # conda environment definition (local setup)
 ├── data/              # place the downloaded dataset here (not committed)
+├── ex_0/              # Exercise 0 — Python and ML warm-up
 ├── ex_1/              # Exercise 1 — quadrotor flight
 ├── ex_2/              # Exercise 2 — solar compass
 └── ex_3/              # Exercise 3 — variational autoencoders

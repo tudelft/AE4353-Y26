@@ -155,7 +155,7 @@ Exercise 3 uses MNIST, which is downloaded automatically by `torchvision` the fi
 
 1. Open VS Code. From the welcome screen select `Open Folder...` and choose the `AE4353-Y26` repository you just cloned.
 
-2. Open the first notebook, `ex_1/ex_1.ipynb`. On the top right you will see a `Select Kernel` option. Click it, choose `Python Environments...`, and select the **`AE4353`** environment.
+2. Open the first notebook. If you would like a Python and NumPy refresher first, start with `ex_0/ex_0.ipynb`, which needs no dataset; otherwise open `ex_1/ex_1.ipynb`. On the top right you will see a `Select Kernel` option. Click it, choose `Python Environments...`, and select the **`AE4353`** environment.
 
 3. Point the notebook at your data by editing the dataset path near the top of the notebook so it matches where you put the files in step 4.
 
