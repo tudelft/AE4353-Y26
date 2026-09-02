@@ -7,11 +7,13 @@
 - [1. Visual Studio Code](#1-visual-studio-code)
 - [2. Git](#2-git)
     - [Windows](#windows)
-    - [Linux / macOS](#linux--macos)
+    - [Linux](#linux)
+    - [macOS](#macos)
 - [3. Miniconda and the Course Environment](#3-miniconda-and-the-course-environment)
 - [4. Data](#4-data)
 - [5. Running the Exercises](#5-running-the-exercises)
 - [6. GPU Acceleration (Optional)](#6-gpu-acceleration-optional)
+    - [Apple Silicon (MPS)](#apple-silicon-mps)
 - [Troubleshooting](#troubleshooting)
 
 ## Overview
@@ -32,7 +34,7 @@ You only do steps 1–3 once. Step 4 is repeated whenever a new exercise needs n
 - [Install](https://code.visualstudio.com/download)
 - [Documentation](https://code.visualstudio.com/docs)
 
-After installing, also install the **Python** and **Jupyter** extensions from the Extensions panel (`Ctrl + Shift + X`). They are what let VS Code run notebooks.
+After installing, also install the **Python** and **Jupyter** extensions from the Extensions panel (`Ctrl + Shift + X`, or `Cmd + Shift + X` on macOS). They are what let VS Code run notebooks.
 
 ## 2. Git
 
@@ -52,13 +54,38 @@ After installing, also install the **Python** and **Jupyter** extensions from th
     git pull
     ```
 
-### Linux / macOS
+### Linux
 Installations on Linux are done directly through the terminal. Open it from the applications page or with `Ctrl + Alt + T`.
 
 1. Install Git (see the [official installation guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) if you hit problems):
     ```bash
     sudo apt-get install git-all
     ```
+
+2. Clone the repository:
+    ```bash
+    git clone https://github.com/tudelft/AE4353-Y26.git
+    ```
+
+3. To pick up any future updates we make, navigate into the repository and pull:
+    ```bash
+    cd AE4353-Y26/
+    git pull
+    ```
+
+### macOS
+Installations on macOS are done through the Terminal. Open it from Launchpad, or by pressing `Cmd + Space` and typing `Terminal`.
+
+> ⚠️ First check which chip your Mac has: click the Apple logo in the top-left corner and select `About This Mac`. If it mentions `Apple M1`/`M2`/`M3`/`M4` you have an ***Apple Silicon*** Mac; if it mentions `Intel` you have an ***Intel*** Mac. You will need this in step 3.
+
+1. Install Git. macOS does not ship with Git, but it offers to install it for you. Run:
+    ```bash
+    git --version
+    ```
+
+    If a pop-up appears asking to install the `command line developer tools`, click `Install` and let it finish. It is a sizeable download — roughly 1 GB, taking about 2 GB once installed — and takes 5-10 minutes on a decent connection. This is Apple's Xcode Command Line Tools package; besides Git it provides the compilers that some Python packages need to build. If you instead see a version number, Git is already installed and you can move on.
+
+    > 💡 If you already use [Homebrew](https://brew.sh/), `brew install git` works just as well. You do not need Homebrew for this course otherwise — everything else below uses graphical installers.
 
 2. Clone the repository:
     ```bash
@@ -79,10 +106,12 @@ Conda downloads all packages required for the exercises in a controlled, reprodu
 1. **Install Miniconda.**
     - **Windows:** use the [download page](https://www.anaconda.com/download). Press the green `Get Started` button; it will ask you to create an account, so use a ***valid email*** as you need to verify it. When offered the choice between the `Distribution` and `Miniconda`, choose **`Miniconda`**.
     - **Linux:** follow the [Linux installation guide](https://www.anaconda.com/docs/getting-started/miniconda/install#linux-2).
+    - **macOS:** follow the [macOS installation guide](https://www.anaconda.com/docs/getting-started/miniconda/install#macos). Download the installer matching your chip — `Apple Silicon` (arm64) or `Intel` (x86_64). Picking the wrong one causes confusing package errors later.
 
 2. **Open a conda-enabled terminal.**
     - **Windows:** open `Anaconda Prompt` (search for it the same way you found Git Bash).
     - **Linux:** your normal terminal now has the `conda` command available.
+    - **macOS:** close and re-open the Terminal so the installer's changes take effect, then check that `conda --version` works.
 
 3. **Create the environment.** Navigate to the repository folder and run:
     ```bash
@@ -105,15 +134,16 @@ Conda downloads all packages required for the exercises in a controlled, reprodu
 ## 4. Data
 The data for this course can be found at this [link](https://surfdrive.surf.nl/files/index.php/s/uStySKYBKHBXcjP), using the password `Ae4353`.
 
-Download it, extract or unzip the folder, and place the dataset files inside the repository's `data/` directory at `/your/workspace/path/AE4353-Y26/data/`. You should end up with something like:
+Download it, then extract or unzip it and place the resulting `AE4353-Datasets-2026` folder inside the repository's `data/` directory at `/your/workspace/path/AE4353-Y26/data/`. You should end up with something like:
 
 ```
 AE4353-Y26/
 └── data/
-    ├── 2D_QUAD_HOVER.npz          # Exercise 1
-    ├── 3D_QUAD_HOVER.npz          # Exercise 1
-    └── polarization_dataset/
-        └── dataset.h5             # Exercise 2
+    └── AE4353-Datasets-2026/
+        ├── 2D_QUAD_HOVER.npz          # Exercise 1
+        ├── 3D_QUAD_HOVER.npz          # Exercise 1
+        └── polarization_dataset/
+            └── dataset.h5             # Exercise 2
 ```
 
 Exercise 3 uses MNIST, which is downloaded automatically by `torchvision` the first time you run the notebook — nothing to place by hand.
@@ -173,14 +203,27 @@ Everything in this course runs on CPU, just more slowly. If you have an **NVIDIA
 
 5. In the notebooks, set the device flag (e.g. `cuda = True` / `DEVICE = torch.device("cuda")`) so the training loop actually uses the GPU.
 
+### Apple Silicon (MPS)
+Macs have no NVIDIA GPU, so the CUDA steps above do not apply. On **Apple Silicon**, PyTorch can use the built-in GPU through the **MPS** backend instead — this needs no changes to `env.yml`. With the `AE4353` environment active, check:
+
+```python
+import torch
+print(torch.backends.mps.is_available())  # should print True
+```
+
+If it prints `True`, set the notebook's device to `torch.device("mps")` wherever the instructions mention `cuda`. It is clearly faster than CPU for Exercises 2 and 3, though still slower than a Kaggle GPU.
+
+On **Intel** Macs there is no GPU option — run on CPU, or use [Kaggle](kaggle.md).
+
 > 💡 No NVIDIA GPU? Don't fight it — use [Kaggle](kaggle.md), which gives you a free GPU in the browser.
 
 ## Troubleshooting
 
 | Symptom | Fix |
 | --- | --- |
-| `conda: command not found` | You are not in a conda-enabled terminal. Use `Anaconda Prompt` on Windows, or re-open your terminal after installing Miniconda on Linux. |
-| `AE4353` does not appear in VS Code's kernel list | Reload the VS Code window (`Ctrl + Shift + P` → `Developer: Reload Window`), and make sure the Python and Jupyter extensions are installed. |
+| `conda: command not found` | You are not in a conda-enabled terminal. Use `Anaconda Prompt` on Windows, or re-open your terminal after installing Miniconda on Linux/macOS. |
+| `AE4353` does not appear in VS Code's kernel list | Reload the VS Code window (`Ctrl + Shift + P`, or `Cmd + Shift + P` on macOS → `Developer: Reload Window`), and make sure the Python and Jupyter extensions are installed. |
+| **macOS:** `PackagesNotFoundError` for `pytorch=2.5.1` | You likely have strict channel priority set. The `pytorch` channel's last Intel-Mac build is 2.2.2; the pinned 2.5.1 comes from `conda-forge`. Run `conda config --set channel_priority flexible` and retry. |
 | `ModuleNotFoundError` for a course package | You selected the wrong kernel. Check the top-right kernel name says `AE4353`. |
 | `FileNotFoundError` on the dataset | The dataset path in the notebook does not match where you extracted the data. See [Data](#4-data). |
 | `conda env create` fails to solve | Delete any partial environment (`conda env remove -n AE4353`) and retry. If it persists, contact us — see the [contact information](README.md#contact-information). |

@@ -1,5 +1,5 @@
 # [AE4353] Artificial Intelligence for Aerospace Control and Operations
-> Welcome to the repository of the 2025/2026 [AE4353] Artificial Intelligence for Aerospace Control and Operations course! 🚀
+> Welcome to the repository of the 2026/2027 [AE4353] Artificial Intelligence for Aerospace Control and Operations course! 🚀
 
 ## Table of Contents
 - [About](#about)
@@ -52,7 +52,7 @@ We officially support **two** environments this year. Both cover every exercise,
 > ⚠️ These two are what we support. You are of course free to use something else (Google Colab, your own cluster, a bare `pip` install), but we cannot help you debug it.
 
 ### Getting Started
-- 💻 **[local.md](local.md)** — VS Code + Git + Miniconda, on Windows or Linux, including optional CUDA setup.
+- 💻 **[local.md](local.md)** — VS Code + Git + Miniconda, on Windows, Linux or macOS, including optional GPU setup.
 - ☁️ **[kaggle.md](kaggle.md)** — Kaggle account, importing the notebooks, uploading datasets, and enabling the GPU.
 
 ## Data

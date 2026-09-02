@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Course data — the repository ships only an empty data/ folder
+data/*
+!data/.gitkeep
+
+# Training artifacts
+wandb/
+runs/
+checkpoints/
+*.pth
+*.ckpt
+
+# OS
+.DS_Store
+Thumbs.db
