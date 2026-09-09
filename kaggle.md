@@ -63,7 +63,7 @@ You repeat this once per exercise. The per-exercise file lists are in [section 4
 ### Create the Dataset
 1. Press `+ Create` again and choose **`New Dataset`**.
 
-2. Give it exactly the name listed for your exercise (`AE4353_0`, `AE4353_1`, `AE4353_2` or `AE4353_3`). The notebooks refer to these names, so a typo means broken paths.
+2. Give it exactly the name listed for your exercise (`AE4353_0`, `AE4353_2` or `AE4353_3` — Exercise 1's dataset is public, see [Exercise 1](#exercise-1--quadrotor-flight)). The notebooks refer to these names, so a typo means broken paths.
 
 3. Upload the files listed for that exercise.
 
@@ -103,7 +103,7 @@ Summary of what goes where:
 | Exercise | Notebook to import | Dataset name | Mounted at | Internet |
 | --- | --- | --- | --- | --- |
 | 0 | `ex_0/ex_0_kaggle.ipynb` | `AE4353_0` | `/kaggle/input/ae4353-0/` | not needed |
-| 1 | `ex_1/ex_1_kaggle.ipynb` | `AE4353_1` | `/kaggle/input/ae4353-1/` | not needed |
+| 1 | `ex_1/ex_1_kaggle.ipynb` | `ae4353_1` (public, by Quentin Missinne — no upload) | `/kaggle/input/ae4353-1/` | not needed |
 | 2 | `ex_2/ex_2 kaggle.ipynb` | `AE4353_2` | `/kaggle/input/ae4353-2/` | not needed |
 | 3 | `ex_3/ex_3_kaggle.ipynb` | `AE4353_3` | `/kaggle/input/ae4353-3/` | **required** (MNIST download) |
 
@@ -116,29 +116,25 @@ Summary of what goes where:
 There is no data file to upload: Exercise 0 generates its own data. No GPU and no internet are needed.
 
 ### Exercise 1 — Quadrotor Flight
-**Dataset `AE4353_1`** — 6 files in total:
+> ✅ **Nothing to download, nothing to upload.** This dataset is already published on Kaggle. Skip [Create the Dataset](#create-the-dataset) entirely and just attach it.
 
-1. The two data files from the SURFdrive download:
-    - `2D_QUAD_HOVER.npz`
-    - `3D_QUAD_HOVER.npz`
-2. The `additional` folder from `ex_1/`, containing:
-    - `dataloader.py`
-    - `plot_utils.py`
-    - `system_dynamics.py`
-    - `trajectory_simulation.py`
+1. In your notebook, press **`+ Add Input`** in the `Input` section on the right.
+2. Select the **`Datasets`** tab **first** — otherwise you are searching notebooks or models and will not find it.
+3. Search for `ae4353_1`.
+4. Add the dataset uploaded by **Quentin Missinne**.
 
-**In the notebook**, check these two things:
+It contains the two data files (`2D_QUAD_HOVER.npz`, `3D_QUAD_HOVER.npz`) and the `additional` folder of helper scripts, so that is everything the notebook needs.
 
-- The dataset path in the configuration cell points at your input, and matches the `trajectory_dim` you are working on:
-    ```python
-    trajectory_dim = 2
-    dataset_file = "/kaggle/input/ae4353-1/2D_QUAD_HOVER.npz"   # 3D_QUAD_HOVER.npz for trajectory_dim = 3
-    ```
-- The cell that copies the helper scripts into the writable working directory uses the **absolute, slugified** path:
-    ```python
-    shutil.copytree('/kaggle/input/ae4353-1/additional', '/kaggle/working/additional', dirs_exist_ok=True)
-    ```
-    See [Troubleshooting](#troubleshooting) — the shipped notebook may have this line written with the un-slugified name or without the leading `/`.
+**Then set the path.** Hover over the dataset folder in the `Input` panel, click the **copy-path** icon, and paste the result into the one variable at the top of the configuration cell:
+
+```python
+DATASET_PATH = "/kaggle/input/ae4353-1"   # <- paste your copied path here
+
+trajectory_dim = 2
+dataset_file = f"{DATASET_PATH}/2D_QUAD_HOVER.npz"  # 3D_QUAD_HOVER.npz for trajectory_dim = 3
+```
+
+Everything else in the notebook derives from `DATASET_PATH`, including the cell that copies the helper scripts into `/kaggle/working/`, so this is the only path you set.
 
 ### Exercise 2 — Solar Compass
 **Dataset `AE4353_2`**:
