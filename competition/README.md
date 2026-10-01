@@ -10,7 +10,7 @@
 - [Submission Format](#submission-format)
 - [Getting Started](#getting-started)
 - [What We Give You](#what-we-give-you)
-- [The Bonus Point](#the-bonus-point)
+- [Submission Rules](#submission-rules)
 - [Rules](#rules)
 - [Timeline](#timeline)
 - [Troubleshooting](#troubleshooting)
@@ -136,18 +136,37 @@ Then go build something.
 ❌ Everything else. The `Dataset`, the dataloader, the model, the loss, the augmentation, the
 validation split and the threshold are yours to write.
 
-## The Bonus Point
-The competition is worth **one bonus point**, and there are three things to do for it. You need
-**all three** — they are not weighted or traded off against each other.
+## Submission Rules
+To earn the bonus point you need **all three** of the following. They are not weighted or traded off
+against each other: missing one means no bonus point.
 
-| | Requirement |
-| --- | --- |
-| **1. Beat the baseline** | Private-leaderboard global Dice above **0.55646**, the private score of our reference model. The bar does not move. |
-| **2. Write it up** | The notebook that produced your final submission, with your model and its trained weights, plus the five-question write-up at the end of the starter notebook, **1–2 pages** in total. |
-| **3. Talk it through** | A short discussion, around ten minutes, with the teaching staff about what you built and what you found. |
+### 1. Beat the baseline
+- Your final submission must score a global Dice above **0.55646** on the **private** leaderboard.
+  That is the private score of our reference model. During the competition the leaderboard shows its
+  *public* score (0.56501), but the bar is the private one.
+- The bar is fixed. It does not move when other students improve.
+- Only your two selected final submissions count. If you select none, Kaggle picks your two best
+  *public* scores, which is usually not what you want.
 
-The notebook you hand in must reproduce your final submission: we should be able to run it from top
-to bottom and get your predictions back.
+### 2. Hand in your notebook and a write-up (by 18 October 2026)
+- **The notebook** that produced your final submission, together with your trained model weights. We
+  must be able to run it from top to bottom and get your submission back. If we cannot, the
+  submission may be considered void.
+- **A write-up of 1–2 pages, as a separate PDF**, on your implementation. Do not describe the task; we
+  know it. Spend the pages on **what** you did, **why** you chose it and **how** you did it: your input
+  representation, model, loss, training, validation and threshold, and what you tried that did not
+  work.
+- **Your sources:** end the write-up with everything you drew on: notebooks, repositories, papers,
+  code from AI assistants (rules 3 and 6 below).
+- **Email** both to [q.missinne@tudelft.nl](mailto:q.missinne@tudelft.nl), and include:
+  - your **Kaggle username**, so we can match you to your submissions;
+  - the **public leaderboard score** of your final submission.
+
+### 3. Discuss your work with us
+- An open discussion with the teaching staff about what you built and what you found. We decide what
+  to ask.
+- Discussions take place on **19–21 October 2026**. If your work is ready earlier, reach out to us and
+  we will set up an earlier slot.
 
 ## Rules
 1. **Work individually.** Discussing ideas and debugging with classmates is encouraged. Sharing code,
