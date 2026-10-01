@@ -32,9 +32,10 @@ masks were drawn by hand by Google Research's data operations team: several peop
 scene, and a pixel counts as contrail when more than half of them agreed.
 
 ## The Data
-The data is published with the competition on Kaggle. **Do not download it** — attach it to your
-notebook: `+ Add Input` → `Competitions`, then this competition. Copy its path from the `Input` panel,
-the same way you do for the exercise datasets (see [kaggle.md](../kaggle.md)).
+The data is published with the competition on Kaggle. **On Kaggle there is nothing to download** —
+attach it to your notebook: `+ Add Input` → `Competitions`, then this competition. Copy its path
+from the `Input` panel, the same way you do for the exercise datasets (see [kaggle.md](../kaggle.md)).
+To work on your own machine instead, download it once: [visualize.ipynb](visualize.ipynb) shows how.
 
 | Split | Records | Masks |
 | --- | --- | --- |
@@ -123,8 +124,10 @@ predicted contrail is written as `-`.
 > Use `rle_encode()` and `write_submission()` from [metric.py](metric.py) and it cannot happen.
 
 ## Getting Started
-Open [visualize_kaggle.ipynb](visualize_kaggle.ipynb). It attaches the data, reads a few records,
-plots them next to their masks, and writes an all-`-` submission.
+Open [visualize_kaggle.ipynb](visualize_kaggle.ipynb) on Kaggle, or
+[visualize.ipynb](visualize.ipynb) to work on your own machine — its first cells explain how to
+download the data into the repository's `data/` folder. Either one reads a few records, plots them
+next to their masks, and writes an all-`-` submission.
 
 Submit that empty file first. It scores exactly `0.0000` — which is not a useful model, but it does
 prove your whole loop works end to end, and every number after it is about your model rather than
