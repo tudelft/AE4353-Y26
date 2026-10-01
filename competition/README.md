@@ -143,7 +143,7 @@ The competition is worth **one bonus point**, and there are three things to do f
 | | Requirement |
 | --- | --- |
 | **1. Beat the baseline** | Private-leaderboard global Dice above **0.55646**, the private score of our reference model. The bar does not move. |
-| **2. Write it up** | The notebook that produced your final submission, with your model and its trained weights, plus the five-question write-up at the end of the starter notebook. |
+| **2. Write it up** | The notebook that produced your final submission, with your model and its trained weights, plus the five-question write-up at the end of the starter notebook, **1–2 pages** in total. |
 | **3. Talk it through** | A short discussion, around ten minutes, with the teaching staff about what you built and what you found. |
 
 The notebook you hand in must reproduce your final submission: we should be able to run it from top
