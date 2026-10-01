@@ -22,3 +22,16 @@ checkpoints/
 # OS
 .DS_Store
 Thumbs.db
+
+# Competition — staff material must never reach this public repo.
+# Y25 leaked its solution.csv; do not repeat that.
+solution.csv
+sample_submission.csv
+*_private.*
+*.h5
+competition/builder_output/
+competition/competition_dataset/
+competition/baseline/
+competition/results/
+competition/*.zip
+competition/CompetitionData*.ipynb
