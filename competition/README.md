@@ -11,6 +11,8 @@
 - [Getting Started](#getting-started)
 - [What We Give You](#what-we-give-you)
 - [Submission Rules](#submission-rules)
+- [Run-Time Limit](#run-time-limit)
+- [Fix Your Random Seeds](#fix-your-random-seeds)
 - [Rules](#rules)
 - [Timeline](#timeline)
 - [Troubleshooting](#troubleshooting)
@@ -167,6 +169,36 @@ against each other: missing one means no bonus point.
   to ask.
 - Discussions take place on **19–21 October 2026**. If your work is ready earlier, reach out to us and
   we will set up an earlier slot.
+
+## Run-Time Limit
+Kaggle gives you 30 GPU hours per week. Your final notebook should take **no longer than 10 hours**
+to run in full, training included.
+
+## Fix Your Random Seeds
+Training is full of randomness: the starting weights, the order of your batches, your augmentation,
+your validation split. Two runs of the same notebook can therefore end on different scores, and the
+notebook we rerun has to give back the submission you handed in. Fix the seeds once, at the top of
+your notebook:
+
+```python
+import random
+
+import numpy as np
+import torch
+
+SEED = 42                                   # any fixed number
+random.seed(SEED)
+np.random.seed(SEED)
+torch.manual_seed(SEED)                     # seeds the GPU as well
+torch.backends.cudnn.benchmark = False      # the same algorithms on every run
+torch.backends.cudnn.deterministic = True
+```
+
+If you shuffle with a `DataLoader`, give it its own seeded generator:
+`DataLoader(..., shuffle=True, generator=torch.Generator().manual_seed(SEED))`. With
+`num_workers > 0` the workers need a seed too; the PyTorch
+[reproducibility notes](https://pytorch.org/docs/stable/notes/randomness.html) show how. Even with
+fixed seeds a GPU can differ very slightly from run to run, but the seeds keep those differences small.
 
 ## Rules
 1. **Work individually.** Discussing ideas and debugging with classmates is encouraged. Sharing code,
